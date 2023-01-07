@@ -6,7 +6,7 @@ abstract class Enemy extends Moveable {
   Enemy() {
     super();
     size = 40;
-    animationImages = new PImage[4];
+    animationImages = new PImage[10];
   }
 
   @Override
@@ -27,20 +27,12 @@ abstract class Enemy extends Moveable {
   @Override
   protected void render() {
     int imageNo = 0;
+    imageNo = floor(frameCounter/6);
 
-    if (frameCounter<8) {
-      imageNo = 0;
-    } else if (frameCounter<16) {
-      imageNo = 1;
-    } else if (frameCounter<23) {
-      imageNo = 2;
-    } else {
-      imageNo = 3;
-      if (frameCounter >= 30) {
+    frameCounter++;
+    if (frameCounter >= 60) {
         frameCounter = 0;
       }
-    }
-    frameCounter++;
 
     imageMode(CENTER);
     image(animationImages[imageNo], x, y, size, size);

@@ -2,7 +2,7 @@ class RegularPuck extends Enemy {
 
   RegularPuck() {
     super();
-    for (int i=0; i<4; i++) {
+    for (int i=0; i<10; i++) {
       animationImages[i] = loadImage("regularPuck"+i+".png");
     }
   }

@@ -27,12 +27,15 @@ class Player extends Moveable {
     targetY = 200;
     dx = 0;
     dy = 0;
+    immobileFrames = 0;
+    colour = green;
   }
   
   @Override
   public void update() {
     if(colour != green) {
       // After hitting a KillerPuck, the player will be immobile for 3 seconds (180 frames)
+      // and flash red and orange
       if(immobileFrames<180) {
         immobileFrames += 1;
         if(immobileFrames%15 == 0){
@@ -91,6 +94,7 @@ class Player extends Moveable {
   }
 
   public void setTargetXY(int targetX, int targetY) {
+    // If the player is not immobile, set the target position
     if(colour == green){
       this.targetX = targetX;
       this.targetY = targetY;
