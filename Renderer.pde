@@ -12,6 +12,7 @@ class Renderer {
     textAlign(CENTER);
     textSize(100);
     
+    // Show a different splash screen depending on the current GameMode
     switch (mode) {
       case START:
         background(0, 255, 0);

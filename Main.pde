@@ -64,16 +64,18 @@ private void play() {
   player.update();
 
   for (Enemy puck : enemies) {
+    // All Enemy objects check for collisions with player
     if (puck.collision()) {
       puck.reset();
       if (puck instanceof KillerPuck) {
         lives-=1;
         player.explode();
       }
-    } 
+    }
+    // Only RegularPuck checks for goal
     if (puck instanceof RegularPuck) {
       // goal() can only be called on instances of RegularPuck
-      // Tell java that puck is a RegularPuck and call goal() on it
+      // Cast puck to a RegularPuck and call goal() on it
       if(((RegularPuck) puck).goal()){
         puck.reset();
         lives-=1;
@@ -87,7 +89,7 @@ void mousePressed() {
   if (gameMode == GameMode.PLAY) {
     player.setTargetXY(mouseX, mouseY);
   } else {
-    // Reset enemies, player, gameMode and times
+    // Reset enemies, player, gameMode and times to restart the game
     for (Enemy puck : enemies) {
       puck.reset();
     }

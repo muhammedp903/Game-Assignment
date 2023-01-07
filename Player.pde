@@ -70,10 +70,10 @@ class Player extends Moveable {
     float distX = targetX - x;
     float distY = targetY - y;
 
-    // Calculate the total distance to the target in a straight line
+    // Calculate the total distance to the target in a straight line using pythagoras
     float distance = sqrt((sq(distY) + sq(distX)));
 
-    // Calculate a divisor to achieve an overall constant velocity of #speed (10)
+    // Calculate a divisor to achieve an overall constant velocity of 10 (float speed)
     float speedFactor = distance/speed;
 
     // Use the divisor to calculate the speed in x and y
@@ -94,7 +94,7 @@ class Player extends Moveable {
   }
 
   public void setTargetXY(int targetX, int targetY) {
-    // If the player is not immobile, set the target position
+    // If the player is not immobile, set the new target position
     if(colour == green){
       this.targetX = targetX;
       this.targetY = targetY;
@@ -102,6 +102,7 @@ class Player extends Moveable {
   }
   
   public void explode() {
+    // Stop the player moving and change colour
     targetX = x;
     targetY = y;
     colour = red;
