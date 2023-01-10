@@ -30,8 +30,11 @@ void draw() {
   if (lives<=0) {
     gameMode = GameMode.GAMEOVER;
     
-    // Read the times from file, add new time, and write back to file
+    // Read the times from file, add new time, and write 6 times back to file
     String[] lines = loadStrings("scores.txt");
+    if(lines.length > 5){
+      lines = subset(lines, 0, 5);
+    }
     String[] times = new String[1];
     times[0] = nf(time)+"    "+day()+"/"+month()+"/"+year();
     saveStrings("scores.txt", concat(times,lines));
