@@ -30,7 +30,9 @@ class Renderer {
         break;
       case GAMEOVER:
         background(255, 0, 0);
-        text("Game Over", width/2, height/2);
+        text("Game Over", width/2, (height/2)-75);
+        textSize(40);
+        text("Your time: "+time+" seconds", width/2, height/2);
         textSize(50);
         text("Click to restart", width/2, (height/2)+100);
         break;

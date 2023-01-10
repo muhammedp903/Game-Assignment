@@ -1,9 +1,9 @@
 private Renderer renderer;
-public Player player;
+private Player player;
 private ArrayList<Enemy> enemies = new ArrayList<>();
 
 private int lives = 10;
-public int startTime;
+private int startTime;
 public int time;
 
 enum GameMode {

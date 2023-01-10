@@ -57,7 +57,7 @@ abstract class Enemy extends Moveable {
       // Check the colour of the pixel at this point
       color testColour = get(testX, testY);
       if (testColour == color(0, 255, 0)) {
-        // A collision is happening if the point is green (colour of the player)
+        // A collision is happening if the point is green (colour of the player when active)
         return true;
       }
     }
